@@ -2,11 +2,12 @@
 
 A simple game written in C. 
 
-## BUILD
+## BUILD AND RUN
 
-/*** bash
+```bash
 make
-**/
+./triangular
+```
 
 ## CONTROLS
 

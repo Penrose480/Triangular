@@ -1,2 +1,2 @@
-all: basic.c
-	gcc -o basic basic.c -lraylib -lm -lpthread -ldl -lrt -lX11
+all: triangular.c
+	gcc -o basic triangular.c -lraylib -lm -lpthread -ldl -lrt -lX11

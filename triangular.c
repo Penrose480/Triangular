@@ -1,7 +1,7 @@
 #include <raylib.h>
 #include <stdio.h>
 
-#define FONT_SIZE 20 
+#define FONT_SIZE 10 
 #define PLAYER_TXT "Penrose480"
 
 int main(void) {

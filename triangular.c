@@ -4,7 +4,8 @@
 #define FONT_SIZE 10 
 #define PLAYER_TXT "Penrose480"
 
-int main(void) {
+int
+main(void) {
     
     /* initialization */
     const int screenWidth = 800;

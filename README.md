@@ -4,7 +4,7 @@ A simple game written in C.
 
 ## DEPENDENCIES
 
-Raylib.
+Raylib and a C compiler.
 
 ## BUILD AND RUN
 

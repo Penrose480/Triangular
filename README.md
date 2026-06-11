@@ -2,6 +2,10 @@
 
 A simple game written in C. 
 
+## DEPENDENCIES
+
+Raylib.
+
 ## BUILD AND RUN
 
 ```bash

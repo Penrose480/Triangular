@@ -4,8 +4,8 @@
 #define FONT_SIZE 10 
 #define PLAYER_TXT "Penrose480"
 
-int
-main(void) {
+int main(void) 
+{
     
     /* initialization */
     const int screenWidth = 800;
@@ -34,11 +34,12 @@ main(void) {
 	if(CheckCollisionPointRec(text_pos, rect)) {
 	    score++;
 
+      /* Move to random position */
 	    rect.x = GetRandomValue(0, screenWidth - 50);
 	    rect.y = GetRandomValue(30, screenHeight - 50); /* prevent overlapping with text */
 	}
 
-	/* Draw */
+	/* Draw text and rect */
 	BeginDrawing();
 	    
 	    ClearBackground(RAYWHITE);

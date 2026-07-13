@@ -52,7 +52,7 @@ int main(void)
 
           DrawText(PLAYER_TXT, (int)text_pos.x, (int)text_pos.y, FONT_SIZE, LIGHTGRAY);
 
-          DrawText("Move me with arrow keys!", 0, 0, DIRECTION_SIZE, DARKGREEN);
+          DrawText("Use arrow keys", 0, 0, DIRECTION_SIZE, DARKGREEN);
 
           DrawRectangle(rect.x, rect.y, rect.width, rect.height, LIGHTGRAY);
 

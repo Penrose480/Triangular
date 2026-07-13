@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 #define FONT_SIZE 10 
-#define DIRECTION_TXT_SIZE 30
-#define SCORE_TXT_SIZE 30
+#define DIRECTION_SIZE 30
+#define SCORE_SIZE 30
 #define PLAYER_TXT "Penrose480"
 
 int main(void) 
@@ -27,10 +27,14 @@ int main(void)
 
     while (!WindowShouldClose()) {
       /* Update */
-      if (IsKeyDown(KEY_RIGHT) && text_pos.x < (float)screenWidth - textWidth) text_pos.x += speed * GetFrameTime();	
-      if (IsKeyDown(KEY_LEFT) && text_pos.x > 0) text_pos.x -= speed * GetFrameTime();
-      if (IsKeyDown(KEY_UP) && text_pos.y > 0) text_pos.y -= speed * GetFrameTime();
-      if (IsKeyDown(KEY_DOWN) && text_pos.y < screenHeight - FONT_SIZE) text_pos.y += speed * GetFrameTime();
+      if (IsKeyDown(KEY_RIGHT) && text_pos.x < (float)screenWidth - textWidth) 
+        text_pos.x += speed * GetFrameTime();	
+      if (IsKeyDown(KEY_LEFT) && text_pos.x > 0) 
+        text_pos.x -= speed * GetFrameTime();
+      if (IsKeyDown(KEY_UP) && text_pos.y > DIRECTION_SIZE + SCORE_SIZE) /* prevent player moving into text */ 
+        text_pos.y -= speed * GetFrameTime();
+      if (IsKeyDown(KEY_DOWN) && text_pos.y < screenHeight - FONT_SIZE) 
+        text_pos.y += speed * GetFrameTime();
 
       /* Score */
       if(CheckCollisionPointRec(text_pos, rect)) {
@@ -38,7 +42,7 @@ int main(void)
 
           /* Move to random position */
           rect.x = GetRandomValue(0, screenWidth - 50);
-          rect.y = GetRandomValue(DIRECTION_TXT_SIZE + SCORE_TXT_SIZE, screenHeight - 50); /* prevent overlapping with text */
+          rect.y = GetRandomValue(DIRECTION_SIZE + SCORE_SIZE, screenHeight - 50); /* prevent overlapping with text */
       }
 
       /* Draw sprites */
@@ -48,12 +52,12 @@ int main(void)
 
           DrawText(PLAYER_TXT, (int)text_pos.x, (int)text_pos.y, FONT_SIZE, LIGHTGRAY);
 
-          DrawText("Move me with arrow keys!", 0, 0, DIRECTION_TXT_SIZE, DARKGREEN);
+          DrawText("Move me with arrow keys!", 0, 0, DIRECTION_SIZE, DARKGREEN);
 
           DrawRectangle(rect.x, rect.y, rect.width, rect.height, LIGHTGRAY);
 
           snprintf(txt, sizeof(txt), "Score: %d", score);
-          DrawText(txt, 0, 30, SCORE_TXT_SIZE, DARKPURPLE);
+          DrawText(txt, 0, 30, SCORE_SIZE, DARKPURPLE);
       
       EndDrawing();
     }

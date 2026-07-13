@@ -2,6 +2,8 @@
 #include <stdio.h>
 
 #define FONT_SIZE 10 
+#define DIRECTION_TXT_SIZE 30
+#define SCORE_TXT_SIZE 30
 #define PLAYER_TXT "Penrose480"
 
 int main(void) 
@@ -36,7 +38,7 @@ int main(void)
 
           /* Move to random position */
           rect.x = GetRandomValue(0, screenWidth - 50);
-          rect.y = GetRandomValue(30, screenHeight - 50); /* prevent overlapping with text */
+          rect.y = GetRandomValue(DIRECTION_TXT_SIZE + SCORE_TXT_SIZE, screenHeight - 50); /* prevent overlapping with text */
       }
 
       /* Draw sprites */
@@ -46,12 +48,12 @@ int main(void)
 
           DrawText(PLAYER_TXT, (int)text_pos.x, (int)text_pos.y, FONT_SIZE, LIGHTGRAY);
 
-          DrawText("Move me with arrow keys!", 0, 0, 30, DARKGREEN);
+          DrawText("Move me with arrow keys!", 0, 0, DIRECTION_TXT_SIZE, DARKGREEN);
 
           DrawRectangle(rect.x, rect.y, rect.width, rect.height, LIGHTGRAY);
 
           snprintf(txt, sizeof(txt), "Score: %d", score);
-          DrawText(txt, 0, 30, 30, DARKPURPLE);
+          DrawText(txt, 0, 30, SCORE_TXT_SIZE, DARKPURPLE);
       
       EndDrawing();
     }
